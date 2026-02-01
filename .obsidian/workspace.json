@@ -1,0 +1,251 @@
+{
+  "main": {
+    "id": "f9a8c153220edfc4",
+    "type": "split",
+    "children": [
+      {
+        "id": "e86a824d768d3320",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0d62d749b5d1baab",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Devops/DBA.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "DBA"
+            }
+          },
+          {
+            "id": "6c9eca9b52c34022",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Devops/GitLab.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "GitLab"
+            }
+          },
+          {
+            "id": "aef484e9e1848515",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Devops/Ansible.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Ansible"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0f3df077b321920e",
+    "type": "split",
+    "children": [
+      {
+        "id": "ba42d8b7c0fd6310",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0279bac6db402661",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "0dfcaa7757a76bcf",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "b2b9ab3c0088431e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 215.5
+  },
+  "right": {
+    "id": "ac246e9ded2b6ce4",
+    "type": "split",
+    "children": [
+      {
+        "id": "0ebd7d647c3e0f2c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9cc9b8d7e53e90dd",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Devops/AWS.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for AWS"
+            }
+          },
+          {
+            "id": "24e51694a05e68b1",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Devops/AWS.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from AWS"
+            }
+          },
+          {
+            "id": "841a5e3256e718dc",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "6f6bfedd887a14c1",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Devops/AWS.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of AWS"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "6c9eca9b52c34022",
+  "lastOpenFiles": [
+    "Devops/Kubernetes/RBAC.md",
+    "Devops/Kubernetes/ArgoCD.md",
+    "Devops/Kubernetes/k8s-microservices-deploy.md",
+    "Devops/GitLab.md",
+    "Devops/Jenkins.md",
+    "devops_собеседование/questions/linux.md",
+    "Devops/DBA.md",
+    "Devops/Ansible.md",
+    "Devops/Docker.md",
+    "Devops/aws cli.md",
+    "Devops/AWS.md",
+    "Devops/VirtualBox.md",
+    "Devops/Observability.md",
+    "Devops/Proxmox.md",
+    "Devops/Terraform.md",
+    "DEVOPS собес памятка/Linux.md",
+    "Devops/Kubernetes/EKS.md",
+    "devops_собеседование/README.md",
+    "Devops/Kubernetes/Kubernetes.md",
+    "Devops/Kubernetes/Helm.md",
+    "Devops/Kubernetes/Microk8s.md",
+    "DEVOPS собес памятка/Сети.md",
+    "Devops/Github Actions.md",
+    "Devops/Kubernetes",
+    "DEVOPS собес памятка",
+    "devops-interview/interview.md",
+    "devops-interview/references.md",
+    "devops-interview/terms.md",
+    "devops_собеседование/Docs/cl-openshift-and-kubernetes-ebook-f25170wg-202010-en.pdf",
+    "devops-interview/imgs/use_toc.gif",
+    "devops-interview/imgs/Untitled.png",
+    "devops-interview/imgs/Untitled 9.png",
+    "devops-interview/imgs/Untitled 8.png",
+    "devops-interview/imgs/Untitled 7.png",
+    "devops-interview/imgs/Untitled 6.png",
+    "devops-interview/imgs/Untitled 5.png",
+    "devops-interview/imgs/Untitled 4.png",
+    "devops-interview/imgs/Untitled 3.png",
+    "devops-interview/imgs/Untitled 23.png",
+    "devops-interview/imgs/test.img",
+    "devops-interview/imgs",
+    "devops-interview",
+    "devops_собеседование/questions/imgs",
+    "devops_собеседование/questions",
+    "devops_собеседование/Docs",
+    "devops_собеседование",
+    "Untitled.canvas"
+  ]
+}
