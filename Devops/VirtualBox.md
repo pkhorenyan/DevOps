@@ -10,7 +10,7 @@ sudo systemctl status ssh
 Settings -> Network
 
 Adapter 1
-Brudged Adapter
+Bridged Adapter
 Adapter 2
 NAT
 

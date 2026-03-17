@@ -318,3 +318,239 @@ roles:
 ```
 
 Всегда фиксируй `version` (tag или commit), не `master`
+
+## Molecule
+
+Molecule — это основной фреймворк для автоматизированного тестирования ролей, плейбуков и коллекций Ansible. Он позволяет разработчикам инфраструктуры (IaC) проверять корректность своего кода в изолированных средах перед развертыванием в продакшене.
+
+Основные этапы цикла тестирования (`molecule test`)
+
+1. **Dependency:** Установка зависимых ролей из Ansible Galaxy.
+2. **Lint:** Проверка кода на соответствие стандартам.
+3. **Create:** Поднятие тестовых инстансов (например, контейнеров Docker).
+4. **Converge:** Запуск тестируемой роли на созданных инстансах.
+5. **Idempotence:** Проверка, что повторный запуск не меняет состояние системы.
+6. **Verify:** Выполнение проверочных скриптов (Unit/Integration тесты).
+7. **Destroy:** Удаление тестовых инстансов после завершения
+
+Одно окружение — много проектов
+
+Тебе не нужно создавать новое окружение для _каждой_ роли. Создай одно мощное окружение под названием, например, `ansible-molecule` и используй его для всех своих плейбуков и ролей.
+
+```
+# Создаем один раз
+pyenv virtualenv 3.12.3 ansible-molecule
+
+# Устанавливаем всё необходимое один раз
+pyenv activate ansible-molecule
+pip install molecule "molecule-plugins[docker]" ansible-lint docker
+```
+
+В папке создаем окружение
+
+```
+cd ~/my-ansible-project 
+pyenv local ansible-molecule
+```
+
+Чтобы запустился `ansible-lint` **надо** чтобы в корне лежал `.git`
+
+### Шаг 1: Инициализация Molecule
+
+Сначала вам нужно установить Molecule и его зависимости, если вы еще этого не сделали. Убедитесь, что у вас установлен pip (менеджер пакетов Python).
+
+```shell
+pip install "molecule[docker]" ansible
+```
+
+Затем перейдите в корневой каталог вашей Ansible-роли docker:
+
+```shell
+cd docker/
+```
+
+Теперь инициализируйте Molecule для создания нового сценария с использованием драйвера Docker. Обычно для начала используется сценарий default.
+
+```shell
+molecule init scenario -d docker
+```
+Эта команда создаст следующую структуру каталогов внутри вашей роли docker:
+
+```
+docker/
+├── defaults/
+├── handlers/
+├── meta/
+├── molecule/
+│   └── default/
+│       ├── converge.yml
+│       ├── create.yml
+│       ├── destroy.yml
+│       ├── molecule.yml
+│       └── verify.yml
+├── tasks/
+├── templates/
+├── tests/
+└── vars/
+```
+
+Прописываем мета информацию в роли иначе тесты не запустятся
+```yaml
+galaxy_info:
+  author: pavelk
+  description: your description
+  company: none
+  license: MIT
+  min_ansible_version: "2.1"
+
+  # ДОБАВЬ ЭТИ ДВЕ СТРОЧКИ:
+  role_name: <role_name>
+  namespace: pavelk
+```
+
+### Шаг 2: Настройка molecule.yml
+
+Основной файл конфигурации для вашего Molecule-сценария находится по адресу `docker/molecule/default/molecule.yml`. Вам нужно настроить его, чтобы использовать драйвер Docker и определить платформы для тестирования.
+
+Вот минимальный и рекомендуемый конфиг для тестирования с Docker, который включает настройки для systemd в контейнере:
+
+*molecule/default/molecule.yml*
+
+```yaml
+---
+driver:
+  name: docker
+platforms:
+  - name: instance # Имя вашего тестового экземпляра (контейнера)
+    image: geerlingguy/docker-ubuntu2204-ansible:latest # Образ Docker для использования
+    pre_build_image: true # Не собирать образ, а загружать его, если его нет
+    privileged: true # Предоставляет расширенные привилегии для systemd
+    command: "" # Переопределяет команду контейнера по умолчанию, чтобы он работал
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw # Необходимо для работы systemd в Docker
+    cgroupns_mode: host # Необходимо для работы systemd в Docker
+    tmpfs:
+      - /tmp
+      - /run # Необходимо для работы systemd в Docker
+provisioner:
+  name: ansible
+  inventory:
+    host_vars:
+      instance:
+        ansible_connection: community.docker.docker # Использует docker в качестве соединения
+verifier:
+  name: ansible
+```
+
+Пояснения к molecule.yml:
+
+ - **`driver.name: docker`**
+  Указывает Molecule использовать Docker для создания и управления тестовыми экземплярами.
+ - **`platforms`**
+  Определяет один или несколько тестовых хостов.
+- **`name: instance`**
+  Уникальное имя для вашего контейнера.
+- **`image: geerlingguy/docker-ubuntu2204-ansible:latest`**
+  Рекомендуемый образ Docker, который уже содержит Ansible и настроен для тестирования с systemd.
+- **`pre_build_image: true`**
+Molecule будет использовать существующий образ и не пытаться его пересобрать.
+- **`privileged: true, volumes, cgroupns_mode, tmpfs`**
+Эти параметры критически важны, если ваша роль Ansible взаимодействует с системными службами, использующими systemd внутри контейнера Docker. Без них systemd может работать некорректно.
+
+- **`provisioner.name: ansible`**
+Указывает, что Ansible будет использоваться для применения вашей роли.
+- **`inventory.host_vars.instance.ansible_connection: community.docker.docker`**
+Настраивает Ansible для подключения к контейнеру Docker.
+- **`verifier.name: ansible`**
+Указывает, что Ansible будет использоваться для верификации.
+
+
+
+### Шаг 3: Настройка converge.yml
+
+Файл `docker/molecule/default/converge.yml` — это плейбук, который Molecule использует для применения вашей Ansible-роли к созданному контейнеру.
+
+Его содержимое должно быть примерно таким:
+
+*molecule/default/converge.yml*
+
+```yaml
+---
+- name: Converge
+  hosts: all
+  become: true # Если вашей роли нужны привилегии root
+  tasks:
+    - name: "Include docker role"
+      ansible.builtin.include_role:
+        name: "../../.." # Относительный путь к вашей роли
+```
+Пояснения к converge.yml:
+
+- `hosts: all`
+  Применяет плейбук ко всем хостам, определенным в Molecule (в нашем случае, к instance).
+- `become: true`
+  Если ваша роль требует привилегий root (например, для установки пакетов или настройки служб), установите это значение в true.
+- `ansible.builtin.include_role: name`
+  "../../..": Это критически важно. Поскольку файл converge.yml находится глубоко в структуре Molecule (docker/molecule/default/converge.yml), вам нужно указать относительный путь к корневому каталогу вашей роли docker. ../../.. означает "выйти на три уровня вверх по каталогу", что приведет к каталогу docker/.
+
+### Шаг 4: Настройка create.yml
+
+
+```yaml
+---
+- name: Create
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Create docker container
+      community.docker.docker_container:
+        name: instance
+        image: geerlingguy/docker-ubuntu2204-ansible:latest
+        state: started
+        privileged: true
+        command: sleep infinity
+        volumes:
+          - /sys/fs/cgroup:/sys/fs/cgroup:rw
+        cgroupns_mode: host
+        tmpfs:
+          - /tmp
+          - /run
+      register: result
+    - name: Print container info
+      ansible.builtin.debug:
+        var: result
+    - name: Add container to inventory
+      ansible.builtin.add_host:
+        name: instance
+        ansible_connection: community.docker.docker
+        groups:
+          - molecule
+```
+
+### Шаг 5: Настройка destroy.yml
+
+```yaml
+---
+- name: Destroy
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Destroy docker container
+      community.docker.docker_container:
+        name: instance
+        state: absent
+        # Удаление связанных томов, если они были созданы
+        cleanup: true
+```
+### Шаг 6: Запуск тестов
+
+После настройки этих файлов вы можете запустить тесты Molecule, находясь в корневом каталоге вашей роли docker:
+
+```shell
+molecule test -s default
+```
+
+Эта команда выполнит весь жизненный цикл тестирования Molecule: destroy, create, prepare, converge, idempotence (проверяет, что повторное выполнение роли не приводит к изменениям), side_effect, verify и destroy снова.
+
+
+Это основные шаги и минимальные конфигурации, необходимые для начала тестирования вашей роли Ansible с Molecule и драйвером Docker.

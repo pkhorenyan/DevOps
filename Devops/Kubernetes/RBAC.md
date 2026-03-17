@@ -196,3 +196,13 @@ kind: Role
 name: pod-reader
 apiGroup: rbac.authorization.k8s.io
 ```
+
+ServiceAccount
+
+```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: monitor-bot
+  namespace: infra  # The SA lives here
+```

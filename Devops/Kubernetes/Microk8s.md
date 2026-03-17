@@ -74,7 +74,7 @@ KUBECONFIG=./config:./microk8s-config-remote kubectl config view --flatten > ./c
 ```
 Теперь можно менять контекст, смотреть get nodes и добавлять worker ноды
 
-добавляем ноду в кластер
+Заходим на мастер ноду и смотрим как добавить еще одну ноду в кластер:
 ```
 microk8s add-node
 ```
