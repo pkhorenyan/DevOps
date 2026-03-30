@@ -91,12 +91,12 @@ my-app/
 
 В каждом файле `values-*.yaml` вы переопределяете только то, что меняется:
 
-| **Параметр**      | **Dev**                                         | **Test**                                         | **Prod**         |
-| ----------------- | ----------------------------------------------- | ------------------------------------------------ | ---------------- |
-| **Replica Count** | 1                                               | 2                                                | 5+ (с HPA)       |
-| **Resources**     | Minimal                                         | Medium                                           | Guaranteed (QoS) |
-| **Ingress**       | https://www.google.com/search?q=dev.example.com | https://www.google.com/search?q=test.example.com | example.com      |
-| **DB Config**     | Embedded/Shared                                 | Dedicated Test DB                                | Managed Cloud DB |
+| **Параметр**      | **Dev**         | **Test**          | **Prod**         |
+| ----------------- | --------------- | ----------------- | ---------------- |
+| **Replica Count** | 1               | 2                 | 5+ (с HPA)       |
+| **Resources**     | Minimal         | Medium            | Guaranteed (QoS) |
+| **Ingress**       | dev.example.com | test.example.com  | example.com      |
+| **DB Config**     | Embedded/Shared | Dedicated Test DB | Managed Cloud DB |
 
 ---
 

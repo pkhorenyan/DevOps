@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Devops/Kubernetes/Volumes.md",
+                "file": "Devops/GitLab.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Volumes"
+              "title": "GitLab"
             }
           },
           {
@@ -55,16 +55,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Devops/Kubernetes/Istio.md",
+                "file": "Devops/Logging.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Istio"
+              "title": "Logging"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -121,7 +121,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 211.5
+    "width": 212.5
   },
   "right": {
     "id": "ac246e9ded2b6ce4",
@@ -212,34 +212,34 @@
       "bases:Create new base": false
     }
   },
-  "active": "aef484e9e1848515",
+  "active": "e1780cc5c83b1637",
   "lastOpenFiles": [
-    "Devops/DBA.md",
-    "Devops/Kubernetes/Volumes.md",
-    "Devops/Kubernetes/Istio.md",
     "Devops/Ansible.md",
-    "Devops/Kubernetes/kubeadm.md",
+    "Devops/Logging.md",
+    "Devops/GitLab.md",
     "Devops/Kubernetes/Main.md",
+    "Devops/Kubernetes/Istio.md",
+    "DEVOPS собес памятка/Linux.md",
+    "Devops/DBA.md",
+    "Devops/Observability.md",
+    "Devops/Github Actions.md",
+    "Devops/Kubernetes/k8s-microservices-deploy.md",
+    "Devops/Kubernetes/Kubespray.md",
+    "Devops/Kubernetes/EKS.md",
+    "Devops/Kubernetes/Helm.md",
+    "Devops/Kubernetes/RBAC.md",
+    "Devops/Kubernetes/Volumes.md",
+    "Devops/Kubernetes/kubeadm.md",
     "DEVOPS собес памятка/Kubernetes.md",
     "Devops/Kubernetes/Microk8s.md",
     "DEVOPS собес памятка/Kubernetes_eng.md",
-    "DEVOPS собес памятка/Linux.md",
-    "Devops/Observability.md",
     "devops-interview/interview.md",
-    "Devops/Kubernetes/Kubespray.md",
     "Devops/Terraform.md",
-    "Devops/Kubernetes/RBAC.md",
     "2026-02-22.md",
     "devops-interview/in_work.md",
     "devops-interview/README.md",
     "devops_собеседование/README.md",
     "devops-interview/references.md",
-    "devops_собеседование/questions/linux.md",
-    "devops_собеседование/questions/networks.md",
-    "devops_собеседование/questions/cicd.md",
-    "devops_собеседование/questions/git.md",
-    "devops_собеседование/questions/docker.md",
-    "devops_собеседование/questions/terraform.md",
     "Devops/Kubernetes",
     "DEVOPS собес памятка",
     "devops_собеседование/Docs/cl-openshift-and-kubernetes-ebook-f25170wg-202010-en.pdf",

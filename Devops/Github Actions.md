@@ -1,13 +1,9 @@
 
 ```yaml
-#---------------------------------------------------------------------
+#
 # GitHub Action Workflow to Deploy Flask App to AWS ElasticBeanstalk
 #
-# Version      Date        Info
-# 1.0          2019        Initial Version
-#
-# Made by Denis Astahov ADV-IT Copyleft (c) 2019
-#---------------------------------------------------------------------
+
 name: CI-CD-Pipeline-to-AWS-ElasticBeanstalk
 env:
   EB_PACKAGE_S3_BUCKET_NAME : "zzz.flask-app"

@@ -275,7 +275,7 @@ myweb1,myweb2,...,mywebn <-> ingress controller <-> Service ingress loadbalancer
       |                           |                            |
 [ Сервис: frontend ]    [ Сервис: backend-api ]    [ Сервис: auth-service ]
       |                           |                            |
-[ Поды frontend ]      [ Поды backend-api ]      [ Поды auth-service ]
+[ Поды frontend ]        [ Поды backend-api ]        [ Поды auth-service ]
 ```
 
 **Ingress Controller** — это **приложение** (например, Nginx, Traefik, HAProxy), которое следит за объектами Ingress в кластере и динамически перенастраивает свою конфигурацию на основе этих правил.

@@ -11,12 +11,6 @@ ansible <host-pattern> -m <module-name> -a “<module-arguments>”
 
 `ansible -i ~/myinventory all -m shell -a "uptime"` — **Время работы**: выполняет команду `uptime` на всех хостах через модуль shell, чтобы узнать, как долго они работают.
 
-`ansible -i ~/myinventory all -m shell -a "df -h"` — **Место на диске**: проверяет свободное пространство на всех хостах в удобном для чтения формате.
-
-`ansible -i ~/myinventory all -m command -a "cat /etc/passwd"` — **Список пользователей**: просматривает содержимое файла `/etc/passwd` на всех хостах, используя модуль command.
-
-`ansible -i ~/myinventory all -m command -a "free -m"` — **Память**: получает информацию о состоянии оперативной памяти (в мегабайтах) на всех хостах.
-
 
 - **To ensure a service is running**: Use `state: started` or `state: present` with a service module.
 - **To ensure a file exists**: Use `state: touch` or `state: present` with the `file` module.
