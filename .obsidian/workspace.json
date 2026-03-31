@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Devops/Logging.md",
+                "file": "Devops/Git.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Logging"
+              "title": "Git"
             }
           }
         ],
@@ -214,9 +214,9 @@
   },
   "active": "e1780cc5c83b1637",
   "lastOpenFiles": [
-    "Devops/Ansible.md",
-    "Devops/Logging.md",
     "Devops/GitLab.md",
+    "Devops/Logging.md",
+    "Devops/Ansible.md",
     "Devops/Kubernetes/Main.md",
     "Devops/Kubernetes/Istio.md",
     "DEVOPS собес памятка/Linux.md",
