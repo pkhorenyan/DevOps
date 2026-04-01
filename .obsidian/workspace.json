@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Devops/Git.md",
+                "file": "Devops/Terraform.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Git"
+              "title": "Terraform"
             }
           }
         ],
@@ -214,13 +214,15 @@
   },
   "active": "e1780cc5c83b1637",
   "lastOpenFiles": [
+    "Devops/Kubernetes/Volumes.md",
     "Devops/GitLab.md",
-    "Devops/Logging.md",
-    "Devops/Ansible.md",
     "Devops/Kubernetes/Main.md",
+    "Devops/DBA.md",
+    "Devops/Ansible.md",
+    "Devops/Git.md",
+    "Devops/Logging.md",
     "Devops/Kubernetes/Istio.md",
     "DEVOPS собес памятка/Linux.md",
-    "Devops/DBA.md",
     "Devops/Observability.md",
     "Devops/Github Actions.md",
     "Devops/Kubernetes/k8s-microservices-deploy.md",
@@ -228,7 +230,6 @@
     "Devops/Kubernetes/EKS.md",
     "Devops/Kubernetes/Helm.md",
     "Devops/Kubernetes/RBAC.md",
-    "Devops/Kubernetes/Volumes.md",
     "Devops/Kubernetes/kubeadm.md",
     "DEVOPS собес памятка/Kubernetes.md",
     "Devops/Kubernetes/Microk8s.md",
@@ -239,7 +240,6 @@
     "devops-interview/in_work.md",
     "devops-interview/README.md",
     "devops_собеседование/README.md",
-    "devops-interview/references.md",
     "Devops/Kubernetes",
     "DEVOPS собес памятка",
     "devops_собеседование/Docs/cl-openshift-and-kubernetes-ebook-f25170wg-202010-en.pdf",
