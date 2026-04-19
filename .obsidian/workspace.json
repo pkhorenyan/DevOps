@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DEVOPS собес памятка/Linux.md",
+                "file": "Devops/Git.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Linux"
+              "title": "Git"
             }
           },
           {
@@ -214,9 +214,9 @@
   },
   "active": "aef484e9e1848515",
   "lastOpenFiles": [
+    "DEVOPS собес памятка/Linux.md",
     "Devops/Terraform.md",
     "Devops/Observability.md",
-    "DEVOPS собес памятка/Linux.md",
     "Devops/AWS.md",
     "Devops/aws cli.md",
     "Devops/Git.md",
