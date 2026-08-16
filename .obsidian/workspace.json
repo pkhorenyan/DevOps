@@ -41,12 +41,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DEVOPS собес памятка/Linux.md",
+                "file": "Devops/Kubernetes/K3s.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Linux"
+              "title": "K3s"
+            }
+          },
+          {
+            "id": "8898ca1689c8bfe7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Devops/Kubernetes/Helm.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Helm"
             }
           },
           {
@@ -84,7 +98,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -121,7 +137,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 212.5
+    "width": 219.49999618530273
   },
   "right": {
     "id": "ac246e9ded2b6ce4",
@@ -214,13 +230,19 @@
   },
   "active": "aef484e9e1848515",
   "lastOpenFiles": [
-    "Devops/Terraform.md",
-    "DEVOPS собес памятка/Linux.md",
+    "devops-interview/interview.md",
     "Devops/DBA.md",
+    "Devops/Kubernetes/Helm.md",
+    "Devops/Logging.md",
+    "Devops/Terraform.md",
+    "devops_собеседование/questions/kubernetes.md",
+    "devops_собеседование/README.md",
+    "Devops/Kubernetes/Main.md",
     "DEVOPS собес памятка/Kubernetes.md",
+    "Devops/Kubernetes/K3s.md",
+    "DEVOPS собес памятка/Linux.md",
     "DEVOPS собес памятка/Kubernetes_eng.md",
     "DEVOPS собес памятка/Сети.md",
-    "Devops/Logging.md",
     "Devops/Observability.md",
     "Devops/Kubernetes/kubeadm.md",
     "Devops/Kubernetes/Volumes.md",
@@ -230,16 +252,10 @@
     "Devops/AWS.md",
     "Devops/aws cli.md",
     "Devops/GitLab.md",
-    "Devops/Kubernetes/Main.md",
     "Devops/Ansible.md",
     "Devops/Kubernetes/Istio.md",
     "Devops/Github Actions.md",
     "Devops/Kubernetes/k8s-microservices-deploy.md",
-    "Devops/Kubernetes/Kubespray.md",
-    "Devops/Kubernetes/EKS.md",
-    "Devops/Kubernetes/Helm.md",
-    "Devops/Kubernetes/RBAC.md",
-    "Devops/Kubernetes/Microk8s.md",
     "Devops/Kubernetes",
     "DEVOPS собес памятка",
     "devops_собеседование/Docs/cl-openshift-and-kubernetes-ebook-f25170wg-202010-en.pdf",

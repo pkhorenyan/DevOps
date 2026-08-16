@@ -108,18 +108,18 @@ my-app/
 
 В конвейере CI/CD вызывается команда установки с указанием нужного файла:
 
-В Dev:   
+Dev:   
 ```
 helm upgrade --install my-app ./my-app -f values.yaml --namespace dev
 ```
    
-В Test:
+Test:
    
 ```
 helm upgrade --install my-app ./my-app -f values-test.yaml --namespace test
 ```
    
-В Prod:
+Prod:
    
 ```
 helm upgrade --install my-app ./my-app -f values-prod.yaml --namespace prod
