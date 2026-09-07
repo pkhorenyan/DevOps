@@ -1,7 +1,5 @@
-Мы используем minikube чтобы развернуть кластер кубернетес локально на машине. Control plane и worker node будут крутиться внутри одной ноды.
-Для работы нужен запущенный Docker.
 
-В *.kube/config* записываются данные кластера с которым мы сецчас работаем
+В *.kube/config* записываются данные кластера с которым мы сейчас работаем
 
 Мы взаимодействуем с кластером через консольную утилиту kubectl.
 
@@ -18,8 +16,7 @@ kubectl config use-context <context-name>
 
 #### Структура
 
-В кубернетес мы не работает с подами напрямую. Над подами есть абстракция под названием Deployment.
-Когда мы создаем deployment у него внутри есть план для создания подов.
+В кубернетес мы не работает с подами напрямую. Над подами есть абстракция под названием Deployment. Когда мы создаем deployment у него внутри есть план для создания подов.
 
 Иерархия абстракций:
 Deployment руководит
@@ -38,8 +35,6 @@ kubectl get deployment
 kubectl get pod
 kubectl edit deployment <name>
 ```
-
-следим за отступами при редактировании(!)
 
 #### Дебаг подов
 
@@ -607,36 +602,24 @@ spec:
               memory: "1025Mi"
               cpu: 0.2 
 ```
+#### Troubleshooting
 
-#### Private Repo
+Статус пода сразу подсказывает направление:
 
-Если пуллим образы из приватной репы и используем minikube нужно потанцевать с бубном.
+| Статус                              | Что смотреть в первую очередь                                             |
+| ----------------------------------- | ------------------------------------------------------------------------- |
+| `Pending`                           | Планировщик: ресурсы, taints/tolerations, nodeSelector, PVC не привязался |
+| `ImagePullBackOff` / `ErrImagePull` | Имя образа, тег, доступ к registry, imagePullSecrets                      |
+| `CrashLoopBackOff`                  | Логи контейнера, ошибка приложения, неверный конфиг, failing probes       |
+| `OOMKilled`                         | Лимиты памяти, реальное потребление                                       |
+| `CreateContainerConfigError`        | Отсутствующий ConfigMap/Secret                                            |
+| `Terminating` (застрял)             | Finalizers, зависший процесс, проблемы с volume                           |
+##### Быстрый чек-лист для траблшутинга:
 
-`minikube ssh`
-`docker login --username <username> -p <password>`
+События → describe пода → логи (с `--previous`) → exec внутрь → сеть/endpoints → ноды.
+В 80% случаев ответ находится в `kubectl describe` и `kubectl logs` на первых двух шагах.
 
-если это AWS
-`docker login --username <username> AWS -p <password> <aws-repo-url>`
 
-Создается *.docker/config.json*
-
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: my-registry-key
-type: kubernetes.io/dockerconfigjson
-data:
-  .dockerconfigjson: <base64>
-```
-
-чтобы сработал этот файл выполняем команду
-`minikube cp minikube:/home/docker/.docker/config.json /users/pavelk/.docker/config.json`
-
-шифруем файл через base64:
-`cat .docker/config.json | base64`
-
-и вставляем результат в значение .dockerconfigjson в вышеприведенном yaml файле
 
 
 
